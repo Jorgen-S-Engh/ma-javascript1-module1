@@ -97,23 +97,22 @@ listfunc(cats);
 
 // Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container.
 
-const catsDiv = document.querySelector(".cat-container");
-let html = "";
-
 function createCats(cats) {
+  let html = "";
   for (let i = 0; i < cats.length; i++) {
     let age = cats[i].age;
+
     if (!age) {
       age = "Age unknown";
     }
+
     html += `
-    <div>
+      <div>
       <h5>${cats[i].name}</h5>
       <p>${age}</p>
-    </div>
-    `;
+    </div>`;
   }
+  return html;
 }
-
-createCats(cats);
-catsDiv.innerHTML = html;
+const catsDiv = document.querySelector(".cat-container");
+catsDiv.innerHTML = createCats(cats);
