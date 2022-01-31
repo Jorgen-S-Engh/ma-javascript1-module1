@@ -80,3 +80,40 @@ function listfunc(list) {
 }
 
 listfunc(cats);
+
+// Question 8:
+
+// Create a function called createCats. The function will have one parameter called cats.
+
+// Inside the function loop through the value passed in as cats and create HTML for each object in the array.
+
+// Wrap each item in a div, each name property in an h5 tag and each age property in a p tag.
+
+// If the age property is missing, it should display “Age unknown” instead.
+
+// Return the HTML from the function.
+
+// Call the function and pass in the cats array as the argument.
+
+// Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container.
+
+const catsDiv = document.querySelector(".cat-container");
+let html = "";
+
+function createCats(cats) {
+  for (let i = 0; i < cats.length; i++) {
+    let age = cats[i].age;
+    if (!age) {
+      age = "Age unknown";
+    }
+    html += `
+    <div>
+      <h5>${cats[i].name}</h5>
+      <p>${age}</p>
+    </div>
+    `;
+  }
+}
+
+createCats(cats);
+catsDiv.innerHTML = html;
